@@ -4,7 +4,7 @@ on: push
 jobs:
  
   sonarqube:
-    name: SonarQube Scan
+    name: SonarQube Scannner
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source code
