@@ -5,7 +5,7 @@ jobs:
  
   sonarqube:
     name: SonarQube Scannner
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
