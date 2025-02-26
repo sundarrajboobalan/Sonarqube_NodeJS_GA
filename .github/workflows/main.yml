@@ -1,7 +1,9 @@
 name: Build
 on: push
+
 jobs:
-   sonarqube:
+ 
+  sonarqube:
     name: SonarQube Scannner
     runs-on: ubuntu-latest
     steps:
