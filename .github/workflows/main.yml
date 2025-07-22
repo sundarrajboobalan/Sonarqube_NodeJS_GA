@@ -4,7 +4,7 @@ on: push
 jobs:
  
   sonarqube:
-    name: SonarQube Scannner
+    name: SonarQube Scannner1
     runs-on: windows-latest
     steps:
       - name: Checkout source code
