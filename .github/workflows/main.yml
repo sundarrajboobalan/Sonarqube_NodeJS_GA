@@ -1,20 +1,25 @@
-name: Build
-on:
-  push:
-    branches:
-      - main # the name of your main branch
-  pull_request:
-    types: [opened, synchronize, reopened]
+name: Sonarqube scanner
+on: push
+
 jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
+ 
+  sonarqube:
+    name: SonarQube Scannner1
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4 with
-       fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+      - name: Checkout source code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - name: Install dependencies
+        run: yarn install
+     
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v2.4.0 # Check GitHub Marketplace for the latest version
+        uses: sonarsource/sonarqube-scan-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
